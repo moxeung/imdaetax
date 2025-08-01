@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    form{
+        text-align: center;
+    }
+</style>
+</head>
+
+<body>
+<form name="입력 양식" action="startpage.php" method="post">
+    임대인 정보<br>
+    <input type="text", placeholder="이름"><br>
+    <input type="text", placeholder="사업자등록번호"><br><br>
+    임차인 정보<br>
+    <input type="text", placeholder="이름"><br>
+    <input type="text", placeholder="주민등록번호 or 사업자등록번호"><br><br>
+    계약 정보<br>
+    <input type="text", placeholder="계약연월일(예:20251231)" maxlength="8"><br>
+    <input type="text", placeholder="보증금" size="3">만원
+    <input type="text", placeholder="월세" size="3">만원<br><br>
+    임대차 계약서 첨부하기<br>
+    <input type="file" class="real-upload" accept="image/*" required multiple><br><br><br>
+    <input type="submit" value="확인">
+    <!--<button type="button" onclick="alert('입력하신 정보가 맞습니까?')">확인</button>-->
+</form>
+
+
+</body>
+
+</html>
