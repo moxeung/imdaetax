@@ -3,6 +3,7 @@
 <head>
     <title>임대사업자 맞춤세무 RenTax</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <style>
             a{
             color: black;
@@ -17,13 +18,30 @@
             text-align: center;
             }
     </style>
+    
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
 </head>
 <body>
     <p>임대사업자를 위한 맞춤세무서비스<br></p>
-    <h1><a style="color: deepskyblue;" href="mobile.html">RenTax</a></h1>
+    <h1><a style="color: deepskyblue;" href="index.html">RenTax</a></h1>
     <p>깜빡하기 쉬운 세금계산서 발급과<br>각종 세금 신고를 대행해드립니다.</p>
     <h4><a href="overview.html">서비스소개</a></h4>
     <h4><a href="price.html">요금안내</a></h4>
     <h3><a href="startpage.html">시작하기</a></h3>
+
+    <!-- 네이버 로그인 버튼 노출 영역 -->
+    <div id="naver_id_login"></div>
+    <!-- //네이버 로그인 버튼 노출 영역 -->
+    <script type="text/javascript">
+    var naver_id_login = new naver_id_login("YOUR_CLIENT_ID", "YOUR_CALLBACK_URL");
+    var state = naver_id_login.getUniqState();
+    naver_id_login.setButton("white", 2,40);
+    naver_id_login.setDomain("YOUR_SERVICE_URL");
+    naver_id_login.setState(state);
+    naver_id_login.setPopup();
+    naver_id_login.init_naver_id_login();
+    </script>
 </body>
 </html>
