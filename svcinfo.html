@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- 반응형 디자인을 위해 필수적인 뷰포트 설정입니다. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연속 이미지 풀스크린 배치</title>
+    <!-- Tailwind CSS를 로드하여 스타일링을 간결하게 처리합니다. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 기본 마진/패딩을 제거하여 화면을 꽉 채우도록 설정합니다. */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* 가로 스크롤 방지 */
+            background-color: #f0f0f0;
+        }
+        /* 모든 이미지가 부모 요소의 너비를 100% 차지하도록 설정합니다. */
+        .full-width-image {
+            width: 100%;
+            height: auto; /* 이미지 비율 유지 */
+            display: block; /* 이미지 하단에 미세하게 생기는 공백 제거 */
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!--
+        [업데이트 완료]
+        모든 <img src="..."> 경로가 상대 경로 (예: svc1.png)로 수정되었습니다.
+        HTML 파일과 svc1.png ~ svc5.png 파일을 동일 폴더에 업로드해야 합니다.
+        이미지 로드 실패 시 대체 이미지를 보여주기 위해 onerror 속성은 유지합니다.
+    -->
+
+    <div id="image-container" class="w-full">
+        <!-- 첫 번째 이미지: 상대 경로로 수정 -->
+        <img
+            src="svc1.png"
+            alt="서비스 소개 이미지 1"
+            class="full-width-image"
+            onerror="this.onerror=null; this.src='https://placehold.co/800x600/ef4444/ffffff?text=Image+Load+Failed';"
+        >
+
+        <!-- 두 번째 이미지: 상대 경로로 수정 -->
+        <img
+            src="svc2.png"
+            alt="서비스 소개 이미지 2"
+            class="full-width-image"
+            onerror="this.onerror=null; this.src='https://placehold.co/800x400/ef4444/ffffff?text=Image+Load+Failed';"
+        >
+
+        <!-- 세 번째 이미지: 상대 경로로 수정 -->
+        <img
+            src="svc3.png"
+            alt="서비스 소개 이미지 3"
+            class="full-width-image"
+            onerror="this.onerror=null; this.src='https://placehold.co/800x800/ef4444/ffffff?text=Image+Load+Failed';"
+        >
+
+        <!-- 네 번째 이미지: 상대 경로로 수정 -->
+        <img
+            src="svc4.png"
+            alt="서비스 소개 이미지 4"
+            class="full-width-image"
+            onerror="this.onerror=null; this.src='https://placehold.co/800x500/ef4444/ffffff?text=Image+Load+Failed';"
+        >
+
+        <!-- 다섯 번째 이미지: 상대 경로로 수정 -->
+        <img
+            src="svc5.png"
+            alt="서비스 소개 이미지 5"
+            class="full-width-image"
+            onerror="this.onerror=null; this.src='https://placehold.co/800x700/ef4444/ffffff?text=Image+Load+Failed';"
+        >
+    </div>
+
+</body>
+</html>
