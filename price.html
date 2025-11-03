@@ -6,23 +6,26 @@
     <title>가격 정보 및 문의</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 기본 마진/패딩을 제거하고 화면을 꽉 채우도록 설정 */
+        /* 기본 마진/패딩을 제거하고 화면 폭을 꽉 채우도록 설정 */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100vh; /* 뷰포트 높이를 꽉 채움 */
-            overflow: hidden; /* 스크롤바 방지 */
+            /* height: 100vh; 제거: 콘텐츠 높이에 따라 유동적으로 늘어남 */
+            overflow-x: hidden; /* 가로 스크롤 방지, 세로 스크롤은 콘텐츠가 넘칠 경우 자동으로 활성화 */
             font-family: 'Inter', sans-serif;
         }
 
-        /* [핵심]: 이미지를 배경으로 설정하고 화면을 꽉 채움 */
+        /* [핵심 수정]: body에서 배경 이미지 관련 스타일 제거 */
         body {
-            background-image: url('price.png'); /* 꽉 채울 이미지 파일 이름 */
-            background-size: cover; /* 화면을 꽉 채우면서 이미지 비율 유지 */
-            background-position: center; /* 이미지를 중앙에 배치 */
-            background-repeat: no-repeat;
-            background-color: #f0f0f0; /* 이미지가 로드되지 않을 경우 대비 */
+            background-color: #f0f0f0; 
+        }
+        
+        /* [핵심 추가]: 이미지 스타일. 좌우 폭을 꽉 채우고 높이는 자동 조절 */
+        #main-content-image {
+            width: 100%;
+            height: auto;
+            display: block; /* 이미지 하단의 미세한 공백 제거 */
         }
         
         /* 공통 버튼 스타일 */
@@ -80,13 +83,12 @@
 </head>
 <body>
 
-    <!--
-        이미지는 body의 background-image로 설정되어 있으므로, 
-        여기에 추가적인 이미지를 넣을 필요는 없습니다. 
-        만약 price.png가 배경이 아닌 콘텐츠 이미지라면, body 스타일을 지우고 
-        <img src="price.png" style="position:fixed; width:100%; height:100%; object-fit:cover;"> 를 사용해야 합니다. 
-        배경으로 설정하는 것이 가장 일반적인 접근 방식입니다.
-    -->
+    <!-- [핵심 변경]: 이미지를 <img> 태그로 넣어 좌우 폭을 채우고, 상하 스크롤이 가능하도록 변경 -->
+    <img id="main-content-image" 
+         src="price.png" 
+         alt="가격 정보 이미지"
+         onerror="this.onerror=null; this.src='https://placehold.co/800x1200/4F46E5/ffffff?text=Price+Image+Load+Failed';"
+    >
 
     <!-- [새로 추가됨] FAQ 버튼 (링크: svcinfo.html) -->
     <a href="http://imdaetax.com/svcinfo.html" id="faq-link" class="floating-button" title="자주 묻는 질문 보기">
