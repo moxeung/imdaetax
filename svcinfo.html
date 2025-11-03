@@ -1,90 +1,107 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <!-- 반응형 디자인을 위해 필수적인 뷰포트 설정입니다. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>임대업 전문 세무서비스 임대택스 소개</title>
-    <!-- Tailwind CSS를 로드하여 스타일링을 간결하게 처리합니다. -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* 기본 마진/패딩을 제거하여 화면을 꽉 채우도록 설정합니다. */
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden; /* 가로 스크롤 방지 */
-            background-color: #f0f0f0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임대업 전문 세무서비스 임대택스 소개</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 기본 마진/패딩을 제거하여 화면을 꽉 채우도록 설정합니다. */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* 가로 스크롤 방지 */
+            background-color: #f0f0f0;
+        }
+        /* 모든 이미지가 부모 요소의 너비를 100% 차지하도록 설정합니다. */
+        .full-width-image {
+            width: 100%;
+            height: auto; /* 이미지 비율 유지 */
+            display: block; /* 이미지 하단에 미세하게 생기는 공백 제거 */
+        }
+        /* 챗봇 버튼 스타일 */
+        #chatbot-link {
+            /* 동전 크기 */
+            width: 56px; 
+            height: 56px;
+            /* 챗봇 아이콘 색상 (노란색) */
+            background-color: #FEE500;
+            /* 원형 */
+            border-radius: 50%;
+            /* 화면에 고정, 오른쪽/아래에서 1.5rem(약 24px) 간격 */
+            position: fixed; 
+            bottom: 1.5rem; 
+            right: 1.5rem;
+            /* 그림자 효과 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            /* 중앙 정렬을 위한 flex */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* 전환 효과 */
+            transition: transform 0.2s ease-in-out;
+            z-index: 100; /* 다른 요소 위에 표시 */
         }
-        /* 모든 이미지가 부모 요소의 너비를 100% 차지하도록 설정합니다. */
-        .full-width-image {
-            width: 100%;
-            height: auto; /* 이미지 비율 유지 */
-            display: block; /* 이미지 하단에 미세하게 생기는 공백 제거 */
+        #chatbot-link:hover {
+            transform: scale(1.05); /* 마우스 오버 시 약간 확대 */
         }
-    </style>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 
-    <!--
-        [업데이트 완료]
-        모든 <img src="..."> 경로가 상대 경로 (예: svc1.png)로 수정되었습니다.
-        HTML 파일과 svc1.png ~ svc5.png 파일을 동일 폴더에 업로드해야 합니다.
-        이미지 로드 실패 시 대체 이미지를 보여주기 위해 onerror 속성은 유지합니다.
-    -->
+    <div id="image-container" class="w-full">
+        <img
+            src="svc1.png"
+            alt="서비스 소개 이미지 1"
+            class="full-width-image"
+            onerror="this.onerror=null; this.src='https://placehold.co/800x600/ef4444/ffffff?text=Image+Load+Failed';"
+        >
 
-    <div id="image-container" class="w-full">
-        <!-- 첫 번째 이미지: 상대 경로로 수정 -->
-        <img
-            src="svc1.png"
-            alt="서비스 소개 이미지 1"
-            class="full-width-image"
-            onerror="this.onerror=null; this.src='https://placehold.co/800x600/ef4444/ffffff?text=Image+Load+Failed';"
-        >
+        <img
+            src="svc2.png"
+            alt="서비스 소개 이미지 2"
+            class="full-width-image"
+            onerror="this.onerror=null; this.src='https://placehold.co/800x400/ef4444/ffffff?text=Image+Load+Failed';"
+        >
 
-        <!-- 두 번째 이미지: 상대 경로로 수정 -->
-        <img
-            src="svc2.png"
-            alt="서비스 소개 이미지 2"
-            class="full-width-image"
-            onerror="this.onerror=null; this.src='https://placehold.co/800x400/ef4444/ffffff?text=Image+Load+Failed';"
-        >
+        <img
+            src="svc3.png"
+            alt="서비스 소개 이미지 3"
+            class="full-width-image"
+            onerror="this.onerror=null; this.src='https://placehold.co/800x800/ef4444/ffffff?text=Image+Load+Failed';"
+        >
 
-        <!-- 세 번째 이미지: 상대 경로로 수정 -->
-        <img
-            src="svc3.png"
-            alt="서비스 소개 이미지 3"
-            class="full-width-image"
-            onerror="this.onerror=null; this.src='https://placehold.co/800x800/ef4444/ffffff?text=Image+Load+Failed';"
-        >
+        <img
+            src="svc4.png"
+            alt="서비스 소개 이미지 4"
+            class="full-width-image"
+            onerror="this.onerror=null; this.src='https://placehold.co/800x500/ef4444/ffffff?text=Image+Load+Failed';"
+        >
 
-        <!-- 네 번째 이미지: 상대 경로로 수정 -->
-        <img
-            src="svc4.png"
-            alt="서비스 소개 이미지 4"
-            class="full-width-image"
-            onerror="this.onerror=null; this.src='https://placehold.co/800x500/ef4444/ffffff?text=Image+Load+Failed';"
-        >
+        <img
+            src="svc5.png"
+            alt="서비스 소개 이미지 5"
+            class="full-width-image"
+            onerror="this.onerror=null; this.src='https://placehold.co/800x700/ef4444/ffffff?text=Image+Load+Failed';"
+        >
+    </div>
 
-        <!-- 다섯 번째 이미지: 상대 경로로 수정 -->
-        <img
-            src="svc5.png"
-            alt="서비스 소개 이미지 5"
-            class="full-width-image"
-            onerror="this.onerror=null; this.src='https://placehold.co/800x700/ef4444/ffffff?text=Image+Load+Failed';"
-        >
-    </div>
+    <a href="http://pf.kakao.com/_xcIaUn/chat" target="_blank" id="chatbot-link" title="임대택스 챗봇 문의">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#3C1E1E">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 3.992 2.217 7.424 5.5 9.17l-.5-2.5c-2.484-1.22-3.8-3.71-3.8-6.67 0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5c0 2.96-1.316 5.45-3.8 6.67l-.5 2.5c3.283-1.746 5.5-5.178 5.5-9.17 0-5.523-4.477-10-10-10zM12 16.5c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5-2.015 4.5-4.5 4.5z"/>
+        </svg>
+    </a>
 
 </body>
 </html>
-
