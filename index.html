@@ -8,26 +8,33 @@
     <meta name="description" content="임대사업자 세금계산서 발행서비스 임대사업자 전문 세무서비스 임대택스">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* [핵심 수정 1]: body, html의 기본 마진/패딩 제거 및 스크롤바 처리 */
+        /* body, html 설정 */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
-            min-height: 100vh; /* 화면 높이를 꽉 채우도록 설정 */
-            overflow-x: hidden; /* 가로 스크롤 방지 */
+            min-height: 100vh; 
+            overflow-x: hidden; 
             background-color: #f0f0f0;
         }
 
-        /* [핵심 수정 2]: 이미지 및 비디오 공통 스타일 */
-        /* display: block은 요소 하단의 미세한 여백(공백)을 제거합니다. */
+        /* 이미지 공통 스타일 (가로 100%) */
         .full-width-image {
             width: 100%;
-            height: auto; /* 비율 유지 */
+            height: auto; 
             display: block; 
-            object-fit: cover; /* 비디오나 이미지가 꽉 차게 보이도록 보정 */
+            object-fit: cover; 
         }
 
-        /* 공통 버튼 스타일 */
+        /* [새로 추가됨] 동영상 전용 스타일 (가로 75%, 가운데 정렬) */
+        .resized-video {
+            width: 75%;      /* 가로 75%로 축소 */
+            height: auto;    /* 비율 유지 */
+            display: block;  /* 블록 요소로 설정 */
+            margin: 0 auto;  /* 좌우 여백 자동 -> 가운데 정렬 */
+        }
+
+        /* 챗봇 버튼 스타일 */
         .floating-button {
             width: 56px; 
             height: 56px;
@@ -35,6 +42,7 @@
             border-radius: 50%;
             position: fixed; 
             right: 1.5rem;
+            bottom: 1.5rem; /* 위치 고정 */
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
@@ -44,11 +52,6 @@
         }
         .floating-button:hover {
             transform: scale(1.05);
-        }
-
-        /* 챗봇 버튼 위치 */
-        #chatbot-link {
-            bottom: 1.5rem; 
         }
     </style>
     <script>
@@ -108,10 +111,10 @@
             onerror="this.onerror=null; this.src='https://placehold.co/800x700/ef4444/ffffff?text=Image+Load+Failed';"
         >
 
-        <!-- [동영상 삽입] -->
+        <!-- [수정됨] 클래스가 resized-video로 변경됨 -->
         <video 
             src="소개영상.mp4" 
-            class="full-width-image" 
+            class="resized-video" 
             controls 
             playsinline 
             preload="metadata">
@@ -134,8 +137,8 @@
 
     </div>
 
-    <!-- 챗봇 버튼 (FAQ 버튼 삭제됨) -->
-    <a href="http://pf.kakao.com/_xcIaUn/chat" target="_blank" id="chatbot-link" class="floating-button" title="임대택스 챗봇 문의">
+    <!-- 챗봇 버튼 -->
+    <a href="http://pf.kakao.com/_xcIaUn/chat" target="_blank" class="floating-button" title="임대택스 챗봇 문의">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3C1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
             <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/>
         </svg>
