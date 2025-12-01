@@ -18,47 +18,42 @@
             background-color: #f0f0f0;
         }
 
-        /* [핵심 수정 2]: 이미지 여백 제거 */
-        /* display: block은 inline 요소 하단의 미세한 여백(공백)을 제거합니다. */
+        /* [핵심 수정 2]: 이미지 및 비디오 공통 스타일 */
+        /* display: block은 요소 하단의 미세한 여백(공백)을 제거합니다. */
         .full-width-image {
             width: 100%;
-            height: auto; /* 이미지 비율 유지 */
+            height: auto; /* 비율 유지 */
             display: block; 
+            object-fit: cover; /* 비디오나 이미지가 꽉 차게 보이도록 보정 */
         }
 
         /* 공통 버튼 스타일 */
         .floating-button {
-            /* 동전 크기 */
             width: 56px; 
             height: 56px;
-            /* 챗봇 아이콘 색상 (노란색) */
             background-color: #FEE500;
-            /* 원형 */
             border-radius: 50%;
-            /* 화면에 고정, 오른쪽에서 1.5rem(약 24px) 간격 */
             position: fixed; 
             right: 1.5rem;
-            /* 그림자 효과 */
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-            /* 중앙 정렬을 위한 flex */
             display: flex;
             align-items: center;
             justify-content: center;
-            /* 전환 효과 */
             transition: transform 0.2s ease-in-out;
-            z-index: 100; /* 다른 요소 위에 표시 */
+            z-index: 100; 
         }
         .floating-button:hover {
-            transform: scale(1.05); /* 마우스 오버 시 약간 확대 */
+            transform: scale(1.05);
         }
 
-        /* 챗봇 버튼 (아래) */
         #chatbot-link {
-            bottom: 1.5rem; /* 화면 하단에서 1.5rem (24px) 위치 */
+            bottom: 1.5rem; 
         }
         
-        /* FAQ 버튼 (위) */
-        /* 1.5rem (챗봇 버튼 바닥 간격) + 3.5rem (챗봇 버튼 높이) + 1.5rem (버튼 간 여백) = 6.5rem */
+        /* FAQ 버튼 위치 조정 (챗봇 버튼 위) */
+        #faq-link {
+             bottom: 6rem; /* 1.5rem + 56px(약 3.5rem) + 1rem 여백 = 대략 6rem */
+        }
     </style>
     <script>
         tailwind.config = {
@@ -75,7 +70,6 @@
 <body>
 
     <div id="image-container" class="w-full">
-        <!-- 이미지 경로가 'svcX.png'로 되어 있어 로드 오류 시 플레이스 홀더로 대체됩니다. -->
         <img
             src="svc1.png"
             alt="서비스 소개 이미지 1"
@@ -118,6 +112,19 @@
             onerror="this.onerror=null; this.src='https://placehold.co/800x700/ef4444/ffffff?text=Image+Load+Failed';"
         >
 
+        <!-- [추가됨] 소개영상.mp4 삽입 -->
+        <!-- controls: 재생/일시정지 바 표시 -->
+        <!-- playsinline: 모바일에서 전체화면 강제 전환 방지 -->
+        <!-- class="full-width-image": 이미지와 동일하게 가로 꽉 차게 설정 -->
+        <video 
+            src="소개영상.mp4" 
+            class="full-width-image" 
+            controls 
+            playsinline 
+            preload="metadata">
+            브라우저가 비디오 태그를 지원하지 않습니다.
+        </video>
+
         <img
             src="price.png"
             alt="가격 이미지"
@@ -134,15 +141,13 @@
 
     </div>
 
-    <!-- [새로 추가됨] FAQ 버튼 -->
-    <!-- 링크가 http://imdaetax.com/faq.html 로 변경됨 -->
+    <!-- FAQ 버튼 -->
     <a href="http://imdaetax.com/faq.html" id="faq-link" class="floating-button" title="자주 묻는 질문 보기">
-        FAQ
+        <span style="font-weight: bold; font-size: 14px; color:#3C1E1E;">FAQ</span>
     </a>
 
-    <!-- 기존 챗봇 버튼 -->
+    <!-- 챗봇 버튼 -->
     <a href="http://pf.kakao.com/_xcIaUn/chat" target="_blank" id="chatbot-link" class="floating-button" title="임대택스 챗봇 문의">
-        <!-- [수정됨] 상담 연결을 의미하는 픽토그램 (말풍선 아이콘)으로 대체 -->
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3C1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
             <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/>
         </svg>
@@ -150,7 +155,3 @@
 
 </body>
 </html>
-
-
-
-
